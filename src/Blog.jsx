@@ -16,9 +16,14 @@ class Blog extends React.Component {
   }
 
   componentDidUpdate(){
+    // カウントが10になったら0に戻る
     if (this.state.count >= 10) {
         this.setState({ count: 0})
     }
+  }
+
+  componentWillUnmount(){
+    document.getElementById("counter").removeEventListener('click', this.countUp)
   }
 
   // 公開状態を反転させる関数
